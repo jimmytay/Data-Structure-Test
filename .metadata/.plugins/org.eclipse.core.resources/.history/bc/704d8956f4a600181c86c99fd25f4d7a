@@ -1,0 +1,31 @@
+package assign;
+
+import assign.BestFit;
+
+import java.util.*;
+
+public class BestFitDescending {
+
+	BestFit bf = new BestFit();
+	
+	public int bestFitDescending(int limit,int[] parcels){
+		
+		int num = 0;
+		int[] newParcels = new int [parcels.length];
+		
+		PriorityQueue<Integer> queue = new PriorityQueue<Integer>(parcels.length, Collections.reverseOrder());
+		
+		for (int x=0;x<parcels.length;x++){
+	//		queue.addAll(Arrays.asList(parcels));
+		}
+		
+		for(int x=0;x<newParcels.length;x++){
+			
+			newParcels[x] = queue.remove();
+		}
+		System.out.println("HAHA");
+		num = bf.Bestfit(limit,parcels);
+	    
+		return num;
+	}
+}

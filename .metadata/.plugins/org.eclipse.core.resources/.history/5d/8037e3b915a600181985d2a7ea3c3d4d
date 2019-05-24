@@ -1,0 +1,91 @@
+import java.util.Scanner;
+import java.util.*;
+
+public class Best_Fit {
+	
+	public static int Bestfit(int limit,int[] parcels) {
+		
+		int num=0;
+		
+		int n = parcels.length;
+		
+		int[] remain = new int [n];
+		
+		for (int i=0; i<n; i++)
+	    {
+	        int j;
+	 
+	        // Initialize minimum space left and index of best bin
+	        int min = limit+1, bi = 0;
+	        for (j=0; j<num; j++)
+	        {
+	            if (remain[j] >= parcels[i] && remain[j] - parcels[i] < min)
+	            {
+	                bi = j;
+	                min = remain[j] - parcels[i];
+	            }
+	        }
+	 
+	        // If no bin could accommodate weight[i], create a new bin
+	        if (min==limit+1)
+	        {
+	        	remain[num] = limit - parcels[i];
+	            num++;
+	        }
+	        else // Assign the item to best bin
+	            remain[bi] -= parcels[i];
+	    }
+	    return num;
+		
+	}
+	
+	public static int descendingBestFit(int limit,int[] parcels){
+		
+		int num = 0;
+		int[] newParcels = new int [parcels.length];
+		String[] p = new String [parcels.length];
+		Set<String> set = new HashSet<String>();
+		
+		for(int x=0;x<parcels.length;x++){
+			
+			p[x] = Integer.toString(parcels[x]);
+			set.add(p[x]);
+		}
+				
+		TreeSet<String> treeSet = new TreeSet<String>(set);
+	    System.out.println("Sorted tree set: " + treeSet);
+	    
+	    for(int x = newParcels.length; x>0; x--){
+	    	
+	    	newParcels[x] = Integer.parseInt(treeSet.pollFirst());
+	    	System.out.println("Parcel 1: "+newParcels[x]);
+	    }
+	    
+	    
+		return num;
+	}
+
+	public static void main(String args[]) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Enter the track limit: ");
+        int limit = sc.nextInt();
+                
+        System.out.print("Enter the number of parcels: ");
+        int num = sc.nextInt();
+        
+        int[] parcels = new int[num];
+        
+        for(int x=0;x<parcels.length;x++){
+        
+        	System.out.print("Enter weight for parcel "+(x+1)+": ");
+        	parcels[x]=sc.nextInt();
+        }
+        
+        System.out.print("Minimum number is "+Bestfit(limit,parcels));
+        
+        System.out.print("Minimum number is "+descendingBestFit(limit,parcels));
+	}
+	
+}

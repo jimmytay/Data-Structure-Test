@@ -1,0 +1,35 @@
+package assign;
+
+import assign.BestFit;
+
+import java.util.HashSet;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class BestFitDescending {
+
+	public int BestFitDescending(int limit,int[] parcels){
+		
+		int num = 0;
+		int[] newParcels = new int [parcels.length];
+		String[] p = new String [parcels.length];
+		Set<String> set = new HashSet<String>();
+		
+		for(int x=0;x<parcels.length;x++){
+			
+			p[x] = Integer.toString(parcels[x]);
+			set.add(p[x]);
+		}
+				
+		TreeSet<String> treeSet = new TreeSet<String>(set);
+	    
+	    for(int x = 0; x<newParcels.length; x++){
+	    	
+	    	newParcels[x] = Integer.parseInt(treeSet.pollLast());
+	    }
+	    
+	    num = Bestfit(limit,newParcels);
+	    
+		return num;
+	}
+}

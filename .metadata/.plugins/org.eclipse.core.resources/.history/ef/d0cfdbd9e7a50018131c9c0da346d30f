@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Best_Fit {
+	
+	public static void Bestfit(int trackNum,int[] parcels) {
+		
+		int n = num / (parcels[0]);
+		
+		
+	}
+
+	public static void main(String args[]) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Enter the number of tracks : ");
+        int tracks = sc.nextInt();
+        
+        System.out.print("Enter the number of parcels : ");
+        int num = sc.nextInt();
+        
+        int[] parcels = new int[num];
+        
+        
+        Bestfit(tracks,parcels);
+	}
+	
+}

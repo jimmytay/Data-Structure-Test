@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class Best_Fit {
+	
+	public static void Bestfit(int trackNum,int limit,int[] parcels) {
+		
+		int n = parcels.length / (parcels[0]);
+		
+		
+	}
+
+	public static void main(String args[]) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Enter the number of tracks: ");
+        int tracks = sc.nextInt();
+        
+        System.out.print("Enter load limit of the tracks: ");
+        int limit = sc.nextInt();
+        
+        System.out.print("Enter the number of parcels: ");
+        int num = sc.nextInt();
+        
+        int[] parcels = new int[num];
+        
+        for(int x=0;x<parcels.length;x++){
+        
+        	System.out.print("Enter weight for parcel "+(x+1)+": ");
+        	parcels[x]=sc.nextInt();
+        }
+        
+        Bestfit(tracks,limit,parcels);
+	}
+	
+}

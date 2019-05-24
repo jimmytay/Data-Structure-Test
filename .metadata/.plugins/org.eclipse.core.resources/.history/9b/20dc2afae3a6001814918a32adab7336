@@ -1,0 +1,9 @@
+package assign;
+
+import java.util.*;
+
+public class PriorityQueue {
+
+	PriorityQueue<String> queue2 = new PriorityQueue<String>(
+		      4, Collections.reverseOrder());
+}

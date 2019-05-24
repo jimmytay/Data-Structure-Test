@@ -1,0 +1,54 @@
+package assign;
+
+import assign.BestFit;
+
+import java.util.*;
+
+public class BestFitDescending {
+
+	BestFit bf;
+	
+	public int BestFitDescending(int limit,int[] parcels){
+		
+		
+		int[] newParcels = new int [parcels.length];
+		String[] p = new String [parcels.length];
+		Set<String> set = new HashSet<String>();
+		
+		for(int x=0;x<parcels.length;x++){
+			
+			p[x] = Integer.toString(parcels[x]);
+			set.add(p[x]);
+		}
+				
+		TreeSet<String> treeSet = new TreeSet<String>(set);
+	    
+	    for(int x = 0; x<newParcels.length; x++){
+	    	
+	    	newParcels[x] = Integer.parseInt(treeSet.pollLast());
+	    }
+	    
+	    
+	}
+	
+	public void makeDescendingOrder(int limit,Integer[] parcels){
+		
+		int num = 0;
+		Integer[] newParcels = new Integer [parcels.length];
+		
+		PriorityQueue<Integer> queue = new PriorityQueue<Integer>(parcels.length, Collections.reverseOrder());
+		
+		for (int x=0;x<parcels.length;x++){
+			queue.addAll(Arrays.asList(parcels));
+		}
+		
+		for(int x=0;x<newParcels.length;x++){
+			
+			newParcels[x] = queue.remove();
+		}
+		
+		num = bf.Bestfit(limit,newParcels);
+	    
+		return num;
+	}
+}
